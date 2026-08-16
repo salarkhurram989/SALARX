@@ -1,0 +1,1 @@
+The project image binaries are added to this repository via GitHub Git objects.
