@@ -1,0 +1,1 @@
+Project images are stored in this folder. CarVerse uses the CARVERSE images and SCORIVO uses the SCORIVO images.
