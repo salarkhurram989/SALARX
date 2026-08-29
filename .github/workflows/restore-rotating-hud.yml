@@ -1,0 +1,30 @@
+name: Restore rotating HUD ring
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add rotating HUD rings
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          old='.orbit{position:absolute;border:1px solid #6478ff55;border-radius:50%;width:500px;height:500px;z-index:1;transform:rotate(-24deg)}.orbit.two{width:410px;height:410px;border-color:#ffffff1c;transform:rotate(28deg)}'
+          new='.orbit{position:absolute;border:1px solid #6478ff55;border-radius:50%;width:500px;height:500px;z-index:1;transform:rotate(-24deg);animation:orbitSpin 14s linear infinite}.orbit.two{width:410px;height:410px;border-color:#ffffff1c;transform:rotate(28deg);animation:orbitSpinReverse 10s linear infinite}'
+          if old in s and 'orbitSpinReverse' not in s:
+              s=s.replace(old,new)
+              s=s.replace('@keyframes spin{to{transform:rotate(360deg)}}','@keyframes spin{to{transform:rotate(360deg)}}@keyframes orbitSpin{to{transform:rotate(336deg)}}@keyframes orbitSpinReverse{to{transform:rotate(-332deg)}}')
+              p.write_text(s)
+          PY
+          rm -f .github/workflows/restore-rotating-hud.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html .github/workflows/restore-rotating-hud.yml
+          git commit -m "Restore rotating HUD ring animation" || exit 0
+          git push
