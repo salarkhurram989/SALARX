@@ -152,9 +152,92 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 @media(prefers-reduced-motion:reduce){
   .mobile-menu,.menu-toggle span{transition:none!important}
 }
+</style>
+<style id="salarx-mobile-interface-v5">
+/* SALARX v5 — true mobile app interface */
+@media(max-width:700px){
+  body{padding-bottom:82px}
+  .nav{height:58px;background:color-mix(in srgb,var(--bg) 94%,transparent)}
+  .navin{height:58px;padding:0 14px}
+  .nav .theme,.nav .menu-toggle,.nav .links{display:none}
+  .nav .logo{font-size:21px}
+  .mobile-app-status{display:flex!important}
+  .hero{padding-top:82px;min-height:calc(100svh - 58px);display:flex;flex-direction:column;justify-content:center}
+  .eyebrow{font-size:10px;padding:7px 10px}
+  .hero h1{font-size:clamp(42px,13vw,58px);margin:15px 0 12px}
+  .intro p{font-size:14px;max-width:330px}
+  .typing{font-size:13px}
+  .hero .buttons{display:grid;grid-template-columns:1fr 1fr;width:100%;max-width:380px;margin:22px auto 0}
+  .hero .buttons .btn{width:100%;font-size:12px}
+  .hud{height:350px;min-height:350px;margin-top:0;transform:scale(.76)}
+  .stats{display:none}
+  .node small{font-size:6px}
+  .mobile-bottom-nav{
+    position:fixed;left:10px;right:10px;bottom:10px;height:64px;z-index:90;
+    display:grid!important;grid-template-columns:repeat(5,1fr);gap:3px;
+    padding:5px;border:1px solid var(--line);border-radius:20px;
+    background:color-mix(in srgb,var(--panel) 92%,transparent);
+    backdrop-filter:blur(22px);box-shadow:0 18px 55px #00000038
+  }
+  .mobile-bottom-nav a{
+    min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:3px;border-radius:14px;color:var(--muted);font-size:9px;font-weight:700;
+    letter-spacing:.02em;transition:.2s
+  }
+  .mobile-bottom-nav a .bn-icon{font-size:18px;line-height:1}
+  .mobile-bottom-nav a.active,.mobile-bottom-nav a:active{color:var(--text);background:var(--line)}
+  .mobile-bottom-nav a.active .bn-dot{width:4px;height:4px;border-radius:50%;background:var(--accent)}
+  .mobile-bottom-nav .bn-more{color:var(--accent)}
+  .mobile-quick-panel{
+    position:fixed;left:10px;right:10px;bottom:82px;z-index:89;
+    padding:12px;display:none;grid-template-columns:repeat(3,1fr);gap:7px;
+    background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 55px #00000045
+  }
+  .mobile-quick-panel.open{display:grid}
+  .mobile-quick-panel a{padding:12px 6px;text-align:center;border:1px solid var(--line);border-radius:12px;font-size:10px;color:var(--muted)}
+  .mobile-quick-panel a:active{color:var(--text);border-color:var(--accent)}
+  .section{padding-top:58px;padding-bottom:58px}
+  .section h2{font-size:clamp(31px,9.5vw,42px)}
+  .card{padding:18px}
+  .card h3{font-size:19px}
+  .card p{font-size:13px}
+  .project-status{margin-top:14px;padding-top:12px}
+  .status-row{font-size:9px}
+  .project-note{font-size:10px}
+  .completion-banner{font-size:12px}
+  .info-card{padding:19px}
+  .info-card .icon{font-size:26px}
+  .skillbox{padding:19px}
+  .timeline .step{grid-template-columns:48px 10px minmax(0,1fr)}
+  .feature-main,.feature-side,.nowbox,.case,.ai-panel{padding:19px}
+  .cmdBtn-mobile-hide{display:none!important}
+  #cmdBtn{bottom:78px!important;right:17px!important}
+}
+@media(max-width:380px){
+  .mobile-bottom-nav{height:60px;bottom:7px}
+  .mobile-bottom-nav a .bn-icon{font-size:16px}
+  .mobile-bottom-nav a{font-size:8px}
+  .hero .buttons{grid-template-columns:1fr}
+  .hero .buttons .btn{min-height:44px}
+}
+@media(min-width:701px){.mobile-bottom-nav,.mobile-quick-panel,.mobile-app-status{display:none!important}}
+.mobile-app-status{display:none;align-items:center;gap:7px;color:var(--muted);font-size:9px;letter-spacing:.08em}
+.mobile-app-status i{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
 </style></head>
 <body>
 <nav class="nav"><div class="navin"><a class="logo sx-logo" href="#home" aria-label="SALARX home"><span class="sx-mark">SX</span><span>Salar<span>X</span></span></a><div class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#games">Games</a><a href="#journey">Journey</a><a href="#contact">Contact</a><a href="#featured">Featured</a><a href="#profile">More</a></div><div class="theme"><button id="dark" aria-label="Dark mode">☾</button><button id="light" aria-label="Light mode">☀</button></div><button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu"><div class="mobile-links"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#games">Games</a><a href="#journey">Journey</a><a href="#contact">Contact</a><a href="#featured">Featured</a><a href="#profile">More</a></div><div class="mobile-menu-foot"><span>SALARX / PORTFOLIO</span><a href="https://github.com/salarkhurram989" target="_blank" rel="noopener">GitHub ↗</a></div></div></nav>
+<div class="mobile-app-status" aria-label="SALARX status"><i></i><span>ONLINE</span></div>
+<nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+  <a href="#home" data-nav="home"><span class="bn-icon">⌂</span><span>Home</span><span class="bn-dot"></span></a>
+  <a href="#projects" data-nav="projects"><span class="bn-icon">▦</span><span>Projects</span><span class="bn-dot"></span></a>
+  <a href="#games" data-nav="games"><span class="bn-icon">▶</span><span>Games</span><span class="bn-dot"></span></a>
+  <a href="#profile" data-nav="profile"><span class="bn-icon">◉</span><span>About</span><span class="bn-dot"></span></a>
+  <a href="#profile" class="bn-more" id="mobileMore" data-nav="more"><span class="bn-icon">•••</span><span>More</span><span class="bn-dot"></span></a>
+</nav>
+<div class="mobile-quick-panel" id="mobileQuickPanel" aria-label="More navigation">
+  <a href="#skills">Skills</a><a href="#featured">Featured</a><a href="#journey">Journey</a>
+  <a href="#github">GitHub</a><a href="#goals">Future</a><a href="#contact">Contact</a>
+</div>
 <div class="load" id="load"><div class="load-inner"><div class="load-logo">SALARX</div><div class="load-bar"><i></i></div><small>INITIALIZING PORTFOLIO</small></div></div><div class="command" id="command"><div class="command-box"><input id="cmdInput" placeholder="Search SALARX..." autocomplete="off"><div class="command-items"><a href="#projects">Projects</a><a href="#games">Games</a><a href="#ailab">AI Lab</a><a href="#github">GitHub</a><a href="#contact">Contact</a></div></div></div><button id="cmdBtn" aria-label="Open command palette" style="position:fixed;right:22px;bottom:76px;z-index:50;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;padding:9px 12px;cursor:pointer">⌘K</button><main id="home">
 <section class="hero"><div class="intro"><div class="eyebrow">👋 Hi, I'm</div><h1>Salar <span>Khurram</span></h1><p>Web developer, designer and creator. I build modern, responsive digital experiences, games and interactive projects.</p><div class="typing" id="typing">Developer</div><div class="buttons"><a class="btn primary" href="#projects">View My Work →</a><a class="btn" href="mailto:salarkhurram989@gmail.com">Contact Me →</a></div></div><div class="hud"><div class="orbit"></div><div class="orbit two"></div><div class="core"><div class="s">S</div></div><div class="node n1">&lt;/&gt;<small>DEVELOP</small></div><div class="node n2">🎨<small>DESIGN</small></div><div class="node n3">🎮<small>GAMING</small></div><div class="node n4">⚡<small>PERFORMANCE</small></div><div class="node n5">🤖<small>AI &amp; TOOLS</small></div><div class="stats"><div class="stat"><b>07</b><small>LISTED PROJECTS</small></div><div class="stat"><b>∞</b><small>IDEAS</small></div><div class="stat"><b>NOW</b><small>BUILDING</small></div></div></div></section>
 <section class="section" id="about"><div class="kicker">01 / About</div><h2>A digital space for what I’m learning &amp; building.</h2><p class="lead">SalarX is my personal space on the web — showcasing coding, design, games, AI experiments and digital creations.</p></section>
@@ -310,5 +393,34 @@ addEventListener('load',()=>setTimeout(()=>document.getElementById('load')?.clas
     },{rootMargin:'0px 0px -8% 0px'});
     bars.forEach(el=>{el.style.animationPlayState='paused';io.observe(el)});
   }
+})();
+</script>
+<script id="salarx-mobile-interface-v5-js">
+(function(){
+  const panel=document.getElementById('mobileQuickPanel');
+  const more=document.getElementById('mobileMore');
+  if(more&&panel){
+    more.addEventListener('click',e=>{
+      if(innerWidth<=700){e.preventDefault();panel.classList.toggle('open')}
+    });
+    panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>panel.classList.remove('open')));
+    document.addEventListener('click',e=>{
+      if(panel.classList.contains('open')&&!panel.contains(e.target)&&!more.contains(e.target))panel.classList.remove('open');
+    });
+  }
+  const navLinks=[...document.querySelectorAll('.mobile-bottom-nav a[data-nav]')];
+  const sections=[...document.querySelectorAll('main section[id]')];
+  function active(){
+    if(innerWidth>700)return;
+    let current='home';
+    sections.forEach(s=>{if(scrollY>=s.offsetTop-180)current=s.id});
+    navLinks.forEach(a=>a.classList.remove('active'));
+    const direct=navLinks.find(a=>a.dataset.nav===current);
+    if(direct)direct.classList.add('active');
+    else navLinks.find(a=>a.dataset.nav==='more')?.classList.add('active');
+  }
+  addEventListener('scroll',active,{passive:true});
+  addEventListener('resize',active,{passive:true});
+  active();
 })();
 </script></body></html>
