@@ -241,6 +241,23 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
   @keyframes touchRipple{0%{opacity:.55;transform:translate(-50%,-50%) scale(.35)}100%{opacity:0;transform:translate(-50%,-50%) scale(2.2)}}
 }
 @media(min-width:701px){.touch-glow{display:none}}
+</style>
+<style id="salarx-v6-all">
+/* SALARX V6 — Command Center / achievements / live GitHub / PWA polish */
+.sx-command-center{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:38px}
+.sx-panel{border:1px solid var(--line);background:var(--panel);border-radius:24px;padding:26px;position:relative;overflow:hidden}
+.sx-panel:after{content:"";position:absolute;width:180px;height:180px;right:-80px;top:-80px;background:var(--accent);filter:blur(80px);opacity:.08;pointer-events:none}
+.sx-status{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px}.sx-dot{width:8px;height:8px;border-radius:50%;background:#72e0a1;box-shadow:0 0 14px #72e0a1}
+.sx-terminal{margin-top:18px;padding:17px;border:1px solid var(--line);border-radius:15px;background:#00000018;font:12px/1.9 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted)}.sx-terminal b{color:var(--text)}
+.sx-command-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}.sx-stat{padding:15px;border:1px solid var(--line);border-radius:15px}.sx-stat b{display:block;font-size:24px}.sx-stat span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.sx-achievements{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}.sx-ach{padding:20px;border:1px solid var(--line);border-radius:18px;background:var(--panel);transition:.3s}.sx-ach:hover{transform:translateY(-6px);border-color:#7b8cff66}.sx-ach .ico{font-size:27px}.sx-ach h3{margin:10px 0 6px}.sx-ach p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}.sx-ach.locked{opacity:.48;filter:grayscale(1)}
+.sx-radar{position:relative;width:min(330px,80vw);aspect-ratio:1;margin:10px auto}.sx-radar svg{width:100%;height:100%;overflow:visible}.sx-radar polygon{fill:var(--accent);fill-opacity:.14;stroke:var(--accent);stroke-width:1.5;filter:drop-shadow(0 0 8px #7b8cff55)}.sx-radar circle,.sx-radar line{stroke:var(--line);fill:none}.sx-radar text{fill:var(--muted);font-size:10px;text-anchor:middle}
+.sx-github-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:30px}.sx-repo-list{display:grid;gap:10px;margin-top:18px}.sx-repo{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border:1px solid var(--line);border-radius:14px}.sx-repo-name{font-weight:750}.sx-repo-meta{font-size:11px;color:var(--muted);margin-top:4px}.sx-repo-right{font-size:11px;color:var(--accent);white-space:nowrap}
+.sx-activity{display:grid;gap:9px;margin-top:18px}.sx-activity div{font-size:11px;color:var(--muted);padding:11px;border-bottom:1px solid var(--line)}.sx-activity b{color:var(--text)}
+.sx-toast{position:fixed;left:50%;bottom:28px;z-index:150;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:12px 16px;border:1px solid var(--line);border-radius:99px;background:var(--panel);box-shadow:0 15px 50px #00000033;color:var(--text);font-size:12px;transition:.3s}.sx-toast.show{opacity:1;transform:translate(-50%,0)}
+.sx-install{display:none}.sx-install.show{display:inline-block}
+@media(max-width:900px){.sx-command-center,.sx-github-grid{grid-template-columns:1fr}.sx-achievements{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.sx-achievements{grid-template-columns:1fr}.sx-panel{padding:20px}.sx-command-stats{grid-template-columns:1fr 1fr}.sx-repo{align-items:flex-start;flex-direction:column}}
 </style></head>
 <body><div class="touch-glow" id="touchGlow" aria-hidden="true"></div>
 <nav class="nav"><div class="navin"><a class="logo sx-logo" href="#home" aria-label="SALARX home"><span class="sx-mark">SX</span><span>Salar<span>X</span></span></a><div class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#games">Games</a><a href="#journey">Journey</a><a href="#contact">Contact</a><a href="#featured">Featured</a><a href="#profile">More</a></div><div class="theme"><button id="dark" aria-label="Dark mode">☾</button><button id="light" aria-label="Light mode">☀</button></div><button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu"><div class="mobile-links"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#games">Games</a><a href="#journey">Journey</a><a href="#contact">Contact</a><a href="#featured">Featured</a><a href="#profile">More</a></div><div class="mobile-menu-foot"><span>SALARX / PORTFOLIO</span><a href="https://github.com/salarkhurram989" target="_blank" rel="noopener">GitHub ↗</a></div></div></nav>
@@ -294,7 +311,85 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 <div class="nowbox"><div class="kicker">CURRENT FOCUS</div><h3>Building better digital experiences.</h3><p>My goal is to keep turning ideas into polished projects while learning stronger programming, design, 3D and AI skills.</p><div class="meter"><div class="meter-top"><span>Web & UI</span><span>90%</span></div><div class="meter-track"><i style="--w:90%"></i></div></div><div class="meter"><div class="meter-top"><span>Game Development</span><span>75%</span></div><div class="meter-track"><i style="--w:75%"></i></div></div><div class="meter"><div class="meter-top"><span>AI & 3D</span><span>60%</span></div><div class="meter-track"><i style="--w:60%"></i></div></div></div>
 <div class="nowbox"><div class="kicker">NEXT</div><h3>More ambitious projects.</h3><p>Better graphics, smarter interactions, stronger mobile support and cleaner code.</p><div class="badges"><span class="badge">Learn</span><span class="badge">Build</span><span class="badge">Test</span><span class="badge">Improve</span><span class="badge">Ship</span></div></div>
 </div></section><section class="section" id="contact"><div class="kicker">10 / Contact</div><h2>Let’s build something.</h2><p class="lead">Have an idea or project? Contact me directly.</p><div class="buttons"><a class="btn primary" href="mailto:salarkhurram989@gmail.com">Email me →</a><a class="btn" href="https://github.com/salarkhurram989" target="_blank">GitHub ↗</a></div></section>
-</main><button id="top" aria-label="Back to top">↑</button><footer class="footer"><div>© 2026 SalarX</div><div>Built with HTML, CSS &amp; JavaScript</div></footer>
+
+<section class="section" id="command-center">
+  <div class="kicker">11 / Command Center</div>
+  <h2>SALARX operating system.</h2>
+  <p class="lead">One dashboard for projects, skills, GitHub activity and the current build.</p>
+  <div class="sx-command-center">
+    <div class="sx-panel">
+      <div class="sx-status"><span class="sx-dot"></span><span>SYSTEM ONLINE</span></div>
+      <div class="sx-terminal">
+        <div>&gt; <b>boot salarx.core</b></div>
+        <div>[OK] project registry loaded</div>
+        <div>[OK] interface systems loaded</div>
+        <div>[OK] responsive engine loaded</div>
+        <div>[OK] creative mode enabled</div>
+        <div>&gt; current_build: <b>SALARX V6</b></div>
+      </div>
+      <div class="sx-command-stats">
+        <div class="sx-stat"><b id="sxProjectCount">07</b><span>Projects</span></div>
+        <div class="sx-stat"><b id="sxCompleteCount">00</b><span>Completed</span></div>
+        <div class="sx-stat"><b id="sxDevCount">07</b><span>In Development</span></div>
+        <div class="sx-stat"><b>08+</b><span>Skill Areas</span></div>
+      </div>
+    </div>
+    <div class="sx-panel">
+      <div class="kicker">LIVE SKILL MAP</div>
+      <div class="sx-radar" aria-label="Interactive skill map">
+        <svg viewBox="0 0 300 300">
+          <circle cx="150" cy="150" r="105"/><circle cx="150" cy="150" r="70"/><circle cx="150" cy="150" r="35"/>
+          <line x1="150" y1="45" x2="150" y2="255"/><line x1="45" y1="150" x2="255" y2="150"/>
+          <polygon points="150,62 214,104 228,150 202,202 150,225 91,198 72,150 96,98"/>
+          <text x="150" y="25">WEB</text><text x="274" y="154">AI</text><text x="150" y="289">3D</text><text x="26" y="154">GAMES</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="achievements-v6">
+  <div class="kicker">12 / Achievements</div>
+  <h2>Milestones unlocked.</h2>
+  <div class="sx-achievements">
+    <article class="sx-ach"><div class="ico">🌐</div><h3>First Website</h3><p>Started turning ideas into real web experiences.</p></article>
+    <article class="sx-ach"><div class="ico">🎮</div><h3>Game Builder</h3><p>Moved from pages into interactive gameplay systems.</p></article>
+    <article class="sx-ach"><div class="ico">🤖</div><h3>AI Explorer</h3><p>Built voice and AI interface experiments.</p></article>
+    <article class="sx-ach"><div class="ico">📱</div><h3>Mobile Ready</h3><p>Added a dedicated mobile interface and touch interactions.</p></article>
+    <article class="sx-ach"><div class="ico">🏎️</div><h3>3D Racer</h3><p>Started building a 3D racing experience.</p></article>
+    <article class="sx-ach"><div class="ico">🔥</div><h3>7 Projects</h3><p>Reached seven listed projects across web, games and AI.</p></article>
+    <article class="sx-ach locked"><div class="ico">💯</div><h3>First 100%</h3><p>Unlock when a project reaches a verified finished state.</p></article>
+    <article class="sx-ach locked"><div class="ico">🏆</div><h3>Major Launch</h3><p>Unlock when a major project reaches a public launch milestone.</p></article>
+  </div>
+</section>
+
+<section class="section" id="live-github">
+  <div class="kicker">13 / GitHub Live</div>
+  <h2>Code activity, directly from GitHub.</h2>
+  <p class="lead">Public repository data is loaded live when available. Nothing is hard-coded into the dashboard.</p>
+  <div class="sx-github-grid">
+    <div class="sx-panel">
+      <div class="sx-status"><span class="sx-dot"></span><span id="sxGithubStatus">CONNECTING TO GITHUB…</span></div>
+      <div class="sx-repo-list" id="sxRepoList"><div class="sx-repo"><div><div class="sx-repo-name">Loading repositories…</div><div class="sx-repo-meta">Fetching public GitHub data</div></div></div></div>
+    </div>
+    <div class="sx-panel">
+      <div class="kicker">RECENT ACTIVITY</div>
+      <div class="sx-activity" id="sxActivity"><div>Loading recent repository activity…</div></div>
+      <div class="buttons"><a class="btn primary" href="https://github.com/salarkhurram989" target="_blank" rel="noopener">OPEN GITHUB →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="lab">
+  <div class="kicker">14 / SALARX LAB</div>
+  <h2>Experiments, ideas and future builds.</h2>
+  <div class="more-grid">
+    <article class="info-card"><div class="icon">🧪</div><h3>Experiments</h3><p>Small prototypes can live here before becoming full projects.</p></article>
+    <article class="info-card"><div class="icon">💡</div><h3>Ideas Queue</h3><p>Collect future concepts and move them into development when ready.</p></article>
+    <article class="info-card"><div class="icon">⚡</div><h3>Performance</h3><p>Optimize animations, rendering and touch interactions for older devices.</p></article>
+    <article class="info-card"><div class="icon">🚀</div><h3>Launchpad</h3><p>Projects move from idea → prototype → development → release.</p></article>
+  </div>
+</section></main><button id="top" aria-label="Back to top">↑</button><footer class="footer"><div>© 2026 SalarX</div><div>Built with HTML, CSS &amp; JavaScript</div></footer>
 <script>(function(){const r=document.documentElement,d=document.getElementById('dark'),l=document.getElementById('light');function t(x){r.setAttribute('data-theme',x);d.classList.toggle('active',x==='dark');l.classList.toggle('active',x==='light');localStorage.setItem('salarx-theme',x)}t(localStorage.getItem('salarx-theme')||'dark');d.onclick=()=>t('dark');l.onclick=()=>t('light')})();</script>
 
 <div class="cursor-glow" aria-hidden="true"></div>
@@ -459,5 +554,37 @@ addEventListener('load',()=>setTimeout(()=>document.getElementById('load')?.clas
   addEventListener('touchend',()=>{
     clearTimeout(timer);timer=setTimeout(()=>glow.classList.remove('active'),120);
   },{passive:true});
+})();
+</script>
+<script id="salarx-v6-js">
+(function(){
+  const toast=document.createElement('div');toast.className='sx-toast';document.body.appendChild(toast);
+  function notify(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(window.__sxToast);window.__sxToast=setTimeout(()=>toast.classList.remove('show'),1800)}
+  const projects=[...document.querySelectorAll('#projects .card')];
+  const completed=projects.filter(x=>(x.querySelector('.status-live')?.textContent||'').includes('100%')).length;
+  const pc=document.getElementById('sxProjectCount'),cc=document.getElementById('sxCompleteCount'),dc=document.getElementById('sxDevCount');
+  if(pc)pc.textContent=String(projects.length).padStart(2,'0');
+  if(cc)cc.textContent=String(completed).padStart(2,'0');
+  if(dc)dc.textContent=String(projects.length-completed).padStart(2,'0');
+
+  // Live public GitHub data
+  const user='salarkhurram989', repoList=document.getElementById('sxRepoList'), activity=document.getElementById('sxActivity'), status=document.getElementById('sxGithubStatus');
+  fetch('https://api.github.com/users/'+user+'/repos?sort=updated&per_page=6')
+    .then(r=>{if(!r.ok)throw new Error('GitHub unavailable');return r.json()})
+    .then(repos=>{
+      status.textContent='GITHUB ONLINE · '+repos.length+' RECENT REPOSITORIES';
+      repoList.innerHTML=repos.map(r=>'<a class="sx-repo" href="'+r.html_url+'" target="_blank" rel="noopener"><div><div class="sx-repo-name">'+r.name+'</div><div class="sx-repo-meta">'+(r.language||'Code')+' · '+(r.description||'No description').slice(0,70)+'</div></div><div class="sx-repo-right">★ '+r.stargazers_count+' ↗</div></a>').join('');
+      return fetch('https://api.github.com/users/'+user+'/events/public?per_page=6');
+    })
+    .then(r=>r.json()).then(events=>{
+      activity.innerHTML=events.slice(0,5).map(e=>{
+        const repo=e.repo?.name||'repository'; const type=(e.type||'Activity').replace('Event','');
+        return '<div><b>'+type+'</b> · '+repo+'</div>';
+      }).join('')||'<div>No recent public activity returned.</div>';
+    })
+    .catch(()=>{status.textContent='GITHUB DATA UNAVAILABLE';repoList.innerHTML='<div class="sx-repo"><div><div class="sx-repo-name">Offline fallback</div><div class="sx-repo-meta">Open GitHub to view the latest repositories.</div></div></div>';activity.innerHTML='<div><b>Tip:</b> GitHub may rate-limit browser API requests. The profile link still works.</div>'});
+
+  // Keyboard shortcut: G then C opens Command Center.
+  let g=false;addEventListener('keydown',e=>{if((e.target.tagName||'').match(/INPUT|TEXTAREA/))return;if(e.key.toLowerCase()==='g'){g=true;setTimeout(()=>g=false,900);return}if(g&&e.key.toLowerCase()==='c'){document.getElementById('command-center')?.scrollIntoView({behavior:'smooth'});g=false}});
 })();
 </script></body></html>
