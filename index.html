@@ -37,11 +37,28 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;op
 @keyframes ambient{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(80px,40px,0) scale(1.15)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 @media(max-width:650px){.cursor-glow{display:none}.hero:before{width:300px;height:300px;filter:blur(90px)}.card:hover{transform:translateY(-5px)}}
+<style>
+/* SALARX — portfolio expansion */
+::selection{background:var(--text);color:var(--bg)}
+.section h2{max-width:1050px}
+.more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.info-card{padding:26px;border:1px solid var(--line);border-radius:20px;background:var(--panel);position:relative;overflow:hidden;transition:.35s}
+.info-card:hover{transform:translateY(-8px);border-color:#7b8cff55;box-shadow:0 20px 55px #00000020}
+.info-card .icon{font-size:30px;margin-bottom:15px}.info-card p{color:var(--muted);line-height:1.7}
+.badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.badge{padding:9px 12px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:12px;background:var(--panel)}
+.now{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:40px}
+.nowbox{padding:30px;border:1px solid var(--line);border-radius:22px;background:var(--panel)}
+.nowbox h3{font-size:28px;margin:8px 0 12px}.nowbox p{color:var(--muted);line-height:1.7}
+.meter{margin-top:20px}.meter-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.meter-track{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:8px}.meter-track i{display:block;height:100%;width:var(--w);background:var(--accent);animation:grow 1.3s both}
+#top{position:fixed;right:22px;bottom:22px;z-index:55;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--panel);color:var(--text);cursor:pointer;opacity:0;transform:translateY(15px);pointer-events:none;transition:.3s}#top.show{opacity:1;transform:none;pointer-events:auto}#top:hover{border-color:var(--accent);transform:translateY(-4px)}
+.typing{display:inline-block;color:var(--accent);min-width:12ch}.typing:after{content:"|";animation:blink .8s infinite}@keyframes blink{50%{opacity:0}}
+@media(max-width:900px){.more-grid{grid-template-columns:repeat(2,1fr)}.now{grid-template-columns:1fr}}
+@media(max-width:650px){.more-grid{grid-template-columns:1fr}.info-card{padding:22px}}
 </style></head>
 <body>
-<nav class="nav"><div class="navin"><a class="logo" href="#home">Salar<span>X</span></a><div class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#games">Games</a><a href="#journey">Journey</a><a href="#contact">Contact</a></div><div class="theme"><button id="dark">☾</button><button id="light">☀</button></div></div></nav>
+<nav class="nav"><div class="navin"><a class="logo" href="#home">Salar<span>X</span></a><div class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#games">Games</a><a href="#journey">Journey</a><a href="#contact">Contact</a><a href="#profile">More</a></div><div class="theme"><button id="dark">☾</button><button id="light">☀</button></div></div></nav>
 <main id="home">
-<section class="hero"><div class="intro"><div class="eyebrow">👋 Hi, I'm</div><h1>Salar <span>Khurram</span></h1><p>Web developer, designer and creator. I build modern, responsive digital experiences, games and interactive projects.</p><div class="buttons"><a class="btn primary" href="#projects">View My Work →</a><a class="btn" href="mailto:salarkhurram989@gmail.com">Contact Me →</a></div></div><div class="hud"><div class="orbit"></div><div class="orbit two"></div><div class="core"><div class="s">S</div></div><div class="node n1">&lt;/&gt;<small>DEVELOP</small></div><div class="node n2">🎨<small>DESIGN</small></div><div class="node n3">🎮<small>GAMING</small></div><div class="node n4">⚡<small>PERFORMANCE</small></div><div class="node n5">🤖<small>AI &amp; TOOLS</small></div><div class="stats"><div class="stat"><b>07+</b><small>PROJECTS</small></div><div class="stat"><b>∞</b><small>IDEAS</small></div><div class="stat"><b>24/7</b><small>BUILDING</small></div></div></div></section>
+<section class="hero"><div class="intro"><div class="eyebrow">👋 Hi, I'm</div><h1>Salar <span>Khurram</span></h1><p>Web developer, designer and creator. I build modern, responsive digital experiences, games and interactive projects.</p><div class="typing" id="typing">Developer</div><div class="buttons"><a class="btn primary" href="#projects">View My Work →</a><a class="btn" href="mailto:salarkhurram989@gmail.com">Contact Me →</a></div></div><div class="hud"><div class="orbit"></div><div class="orbit two"></div><div class="core"><div class="s">S</div></div><div class="node n1">&lt;/&gt;<small>DEVELOP</small></div><div class="node n2">🎨<small>DESIGN</small></div><div class="node n3">🎮<small>GAMING</small></div><div class="node n4">⚡<small>PERFORMANCE</small></div><div class="node n5">🤖<small>AI &amp; TOOLS</small></div><div class="stats"><div class="stat"><b>07+</b><small>PROJECTS</small></div><div class="stat"><b>∞</b><small>IDEAS</small></div><div class="stat"><b>24/7</b><small>BUILDING</small></div></div></div></section>
 <section class="section" id="about"><div class="kicker">01 / About</div><h2>A digital space for what I’m learning &amp; building.</h2><p class="lead">SalarX is my personal space on the web — showcasing coding, design, games, AI experiments and digital creations.</p></section>
 <section class="section" id="projects"><div class="kicker">02 / Selected work</div><h2>Things I’ve built.</h2><div class="grid">
 <article class="card"><div>🚗</div><h3>CarVerse</h3><p>A modern car encyclopedia and discovery interface.</p><a class="project-open" href="https://salarkhurram989.github.io/CARVERSE/" target="_blank">Open CarVerse ↗</a><span class="tag">Web Design</span></article>
@@ -59,8 +76,24 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;op
 </div></section>
 <section class="section" id="skills"><div class="kicker">04 / Toolkit</div><h2>Skills that keep getting better.</h2><div class="skills"><div class="skillbox"><h3>Development</h3><div class="skill"><div class="skilltop"><span>HTML / CSS</span><span>90%</span></div><div class="line"><i style="width:90%"></i></div></div><div class="skill"><div class="skilltop"><span>JavaScript</span><span>75%</span></div><div class="line"><i style="width:75%"></i></div></div></div><div class="skillbox"><h3>Creative</h3><div class="skill"><div class="skilltop"><span>UI / Design</span><span>80%</span></div><div class="line"><i style="width:80%"></i></div></div><div class="skill"><div class="skilltop"><span>Editing</span><span>80%</span></div><div class="line"><i style="width:80%"></i></div></div></div></div></section>
 <section class="section" id="journey"><div class="kicker">05 / Journey</div><h2>From curiosity to creation.</h2><div class="timeline"><div class="step"><div class="year">START</div><div class="dot"></div><div><h3>Started exploring technology</h3><p>Began learning websites, digital tools and creative software.</p></div></div><div class="step"><div class="year">BUILD</div><div class="dot"></div><div><h3>First web projects</h3><p>Turned ideas into HTML, CSS and JavaScript projects.</p></div></div><div class="step"><div class="year">NOW</div><div class="dot"></div><div><h3>Games • AI • Web</h3><p>Building interactive games, AI experiences and creative web projects.</p></div></div></div></section>
-<section class="section" id="contact"><div class="kicker">06 / Contact</div><h2>Let’s build something.</h2><p class="lead">Have an idea or project? Contact me directly.</p><div class="buttons"><a class="btn primary" href="mailto:salarkhurram989@gmail.com">Email me →</a><a class="btn" href="https://github.com/salarkhurram989" target="_blank">GitHub ↗</a></div></section>
-</main><footer class="footer"><div>© 2026 SalarX</div><div>Built with HTML, CSS &amp; JavaScript</div></footer>
+<section class="section" id="profile"><div class="kicker">06 / Profile</div><h2>More about the person behind the projects.</h2><div class="more-grid">
+<article class="info-card"><div class="icon">👨‍💻</div><h3>About Me</h3><p>I’m a young creator exploring web development, UI design, game development and AI. I learn by turning ideas into real projects, testing them and improving them.</p></article>
+<article class="info-card"><div class="icon">🧰</div><h3>Tech Stack</h3><p>HTML, CSS, JavaScript, Java, Git, GitHub, Three.js, responsive web design and AI APIs/tools.</p></article>
+<article class="info-card"><div class="icon">📱</div><h3>Built For</h3><p>Responsive experiences for phones, tablets and desktops, with touch controls, performance and usability in mind.</p></article>
+<article class="info-card"><div class="icon">🚀</div><h3>Currently Building</h3><p>Improving Street Racer, Penalty Shooter, JARVIS and new interactive web experiments.</p></article>
+</div><div class="badges"><span class="badge">Web Development</span><span class="badge">Game Development</span><span class="badge">UI / UX</span><span class="badge">AI Experiments</span><span class="badge">3D Web</span><span class="badge">Responsive Design</span></div></section>
+<section class="section" id="achievements"><div class="kicker">07 / Milestones</div><h2>What I’ve been working toward.</h2><div class="more-grid">
+<article class="info-card"><div class="icon">🌐</div><h3>Web Creator</h3><p>Built multiple websites and interactive interfaces from scratch.</p></article>
+<article class="info-card"><div class="icon">🎮</div><h3>Game Builder</h3><p>Experimenting with gameplay systems, controls, shops, upgrades, physics and 3D scenes.</p></article>
+<article class="info-card"><div class="icon">🤖</div><h3>AI Explorer</h3><p>Exploring voice interfaces, assistants, APIs and futuristic HUD experiences.</p></article>
+<article class="info-card"><div class="icon">🎯</div><h3>Next Goals</h3><p>Improve JavaScript, 3D graphics, engineering practices and larger mobile-first projects.</p></article>
+</div></section>
+<section class="section" id="github"><div class="kicker">08 / Open Source</div><h2>My code lives on GitHub.</h2><p class="lead">Explore my repositories, experiments and project progress.</p><div class="buttons"><a class="btn primary" href="https://github.com/salarkhurram989" target="_blank">VIEW GITHUB →</a><a class="btn" href="https://github.com/salarkhurram989?tab=repositories" target="_blank">ALL REPOSITORIES ↗</a></div></section>
+<section class="section" id="goals"><div class="kicker">09 / Future</div><h2>Learning, building, repeating.</h2><div class="now">
+<div class="nowbox"><div class="kicker">CURRENT FOCUS</div><h3>Building better digital experiences.</h3><p>My goal is to keep turning ideas into polished projects while learning stronger programming, design, 3D and AI skills.</p><div class="meter"><div class="meter-top"><span>Web & UI</span><span>90%</span></div><div class="meter-track"><i style="--w:90%"></i></div></div><div class="meter"><div class="meter-top"><span>Game Development</span><span>75%</span></div><div class="meter-track"><i style="--w:75%"></i></div></div><div class="meter"><div class="meter-top"><span>AI & 3D</span><span>60%</span></div><div class="meter-track"><i style="--w:60%"></i></div></div></div>
+<div class="nowbox"><div class="kicker">NEXT</div><h3>More ambitious projects.</h3><p>Better graphics, smarter interactions, stronger mobile support and cleaner code.</p><div class="badges"><span class="badge">Learn</span><span class="badge">Build</span><span class="badge">Test</span><span class="badge">Improve</span><span class="badge">Ship</span></div></div>
+</div></section><section class="section" id="contact"><div class="kicker">10 / Contact</div><h2>Let’s build something.</h2><p class="lead">Have an idea or project? Contact me directly.</p><div class="buttons"><a class="btn primary" href="mailto:salarkhurram989@gmail.com">Email me →</a><a class="btn" href="https://github.com/salarkhurram989" target="_blank">GitHub ↗</a></div></section>
+</main><button id="top" aria-label="Back to top">↑</button><footer class="footer"><div>© 2026 SalarX</div><div>Built with HTML, CSS &amp; JavaScript</div></footer>
 <script>(function(){const r=document.documentElement,d=document.getElementById('dark'),l=document.getElementById('light');function t(x){r.setAttribute('data-theme',x);d.classList.toggle('active',x==='dark');l.classList.toggle('active',x==='light');localStorage.setItem('salarx-theme',x)}t(localStorage.getItem('salarx-theme')||'dark');d.onclick=()=>t('dark');l.onclick=()=>t('light')})();</script>
 
 <div class="cursor-glow" aria-hidden="true"></div>
@@ -116,5 +149,15 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;op
       if(target){e.preventDefault();target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})}
     });
   });
+})();
+</script><script>
+(function(){
+ const top=document.getElementById('top'), typing=document.getElementById('typing');
+ const words=['Developer','Designer','Game Creator','AI Explorer']; let wi=0,ci=0,del=false;
+ function type(){if(!typing)return;const w=words[wi];typing.textContent=del?w.slice(0,--ci):w.slice(0,++ci);if(!del&&ci===w.length){del=true;setTimeout(type,1100);return}if(del&&ci===0){del=false;wi=(wi+1)%words.length}setTimeout(type,del?45:75)} type();
+ const oldScroll=window.onscroll; addEventListener('scroll',()=>top.classList.toggle('show',scrollY>500),{passive:true});
+ top.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+ document.querySelectorAll('.info-card,.nowbox').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=(i%4)*60+'ms'});
+ if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>io.observe(e))}
 })();
 </script></body></html>
