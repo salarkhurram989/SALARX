@@ -1,0 +1,17 @@
+{
+  "name": "SALARX",
+  "short_name": "SALARX",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#06070a",
+  "theme_color": "#06070a",
+  "description": "SALARX developer portfolio, projects, games and experiments.",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
