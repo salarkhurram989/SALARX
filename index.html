@@ -223,8 +223,26 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 @media(min-width:701px){.mobile-bottom-nav,.mobile-quick-panel,.mobile-app-status{display:none!important}}
 .mobile-app-status{display:none;align-items:center;gap:7px;color:var(--muted);font-size:9px;letter-spacing:.08em}
 .mobile-app-status i{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+</style><style id="salarx-touch-glow-v1">
+@media(max-width:700px){
+  .touch-glow{
+    position:fixed;width:150px;height:150px;border-radius:50%;pointer-events:none;z-index:85;
+    left:0;top:0;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,var(--accent) 0%,transparent 68%);
+    opacity:0;filter:blur(18px);transition:opacity .18s ease;
+    mix-blend-mode:screen;
+  }
+  .touch-glow.active{opacity:.22}
+  .touch-ripple{
+    position:fixed;width:34px;height:34px;border:1px solid var(--accent);border-radius:50%;
+    pointer-events:none;z-index:86;transform:translate(-50%,-50%) scale(.4);
+    opacity:0;animation:touchRipple .55s ease-out forwards;
+  }
+  @keyframes touchRipple{0%{opacity:.55;transform:translate(-50%,-50%) scale(.35)}100%{opacity:0;transform:translate(-50%,-50%) scale(2.2)}}
+}
+@media(min-width:701px){.touch-glow{display:none}}
 </style></head>
-<body>
+<body><div class="touch-glow" id="touchGlow" aria-hidden="true"></div>
 <nav class="nav"><div class="navin"><a class="logo sx-logo" href="#home" aria-label="SALARX home"><span class="sx-mark">SX</span><span>Salar<span>X</span></span></a><div class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#games">Games</a><a href="#journey">Journey</a><a href="#contact">Contact</a><a href="#featured">Featured</a><a href="#profile">More</a></div><div class="theme"><button id="dark" aria-label="Dark mode">☾</button><button id="light" aria-label="Light mode">☀</button></div><button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu"><div class="mobile-links"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#games">Games</a><a href="#journey">Journey</a><a href="#contact">Contact</a><a href="#featured">Featured</a><a href="#profile">More</a></div><div class="mobile-menu-foot"><span>SALARX / PORTFOLIO</span><a href="https://github.com/salarkhurram989" target="_blank" rel="noopener">GitHub ↗</a></div></div></nav>
 <div class="mobile-app-status" aria-label="SALARX status"><i></i><span>ONLINE</span></div>
 <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
@@ -422,5 +440,24 @@ addEventListener('load',()=>setTimeout(()=>document.getElementById('load')?.clas
   addEventListener('scroll',active,{passive:true});
   addEventListener('resize',active,{passive:true});
   active();
+})();
+</script><script id="salarx-touch-glow-v1-js">
+(function(){
+  const glow=document.getElementById('touchGlow');
+  if(!glow||innerWidth>700)return;
+  let timer;
+  function move(x,y){
+    glow.style.left=x+'px';glow.style.top=y+'px';glow.classList.add('active');
+    clearTimeout(timer);timer=setTimeout(()=>glow.classList.remove('active'),420);
+  }
+  addEventListener('touchstart',e=>{
+    const t=e.touches[0];if(t)move(t.clientX,t.clientY);
+  },{passive:true});
+  addEventListener('touchmove',e=>{
+    const t=e.touches[0];if(t)move(t.clientX,t.clientY);
+  },{passive:true});
+  addEventListener('touchend',()=>{
+    clearTimeout(timer);timer=setTimeout(()=>glow.classList.remove('active'),120);
+  },{passive:true});
 })();
 </script></body></html>
