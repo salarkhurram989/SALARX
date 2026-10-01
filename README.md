@@ -26,9 +26,6 @@ A modern car encyclopedia and vehicle catalog experience with search, categories
 ### SCORIVO
 A football dashboard concept covering scores, matches, leagues, teams, news and injury updates.
 
-### iPhone Launcher
-A web-based launcher concept inspired by a clean mobile home-screen experience.
-
 ## 🛠️ Built With
 
 - HTML5
